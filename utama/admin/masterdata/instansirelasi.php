@@ -41,7 +41,7 @@ require 'functioninstansirelasi.php';
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-       
+     
         <?php
 
         readfile('../menu.php');
@@ -95,7 +95,7 @@ require 'functioninstansirelasi.php';
                             <div class="container-fluid">
                                 
 
-                             <div class="card-body">
+                               <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="10">
                                         <thead style="background-color:  #d3d3d3;" >
@@ -175,7 +175,7 @@ require 'functioninstansirelasi.php';
                                                                     <!-- Modal body -->
                                                                     <form method="post">
                                                                         <div class="modal-body">
-                                                                           
+                                                                         
                                                                             <label>Nama </label><br>
                                                                             <select style="width:350px; height:40px;"  name="instansinya" class="from-control" required> 
                                                                                 <?php 
@@ -296,8 +296,8 @@ require 'functioninstansirelasi.php';
             <!-- Modal body -->
             <form method="POST">
                 <div class="modal-body">
-                   <label>Nama Perusahaan</label><br>
-                   <select style="width:350px; height:40px;"  name="instansinya" class="from-control" required> 
+                 <label>Nama Perusahaan</label><br>
+                 <select style="width:350px; height:40px;"  name="instansinya" class="from-control" required> 
                     <?php 
                     $ambilsemuadatanya = mysqli_query($koneksi,"select *from masterdata_jenisrelasi");
                     while ($fetcharray = mysqli_fetch_array($ambilsemuadatanya)){

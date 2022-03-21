@@ -30,7 +30,7 @@ if(isset($_POST['updateinstansi'])){
     $website = $_POST['website'];
     $ids = $_POST['id'];
     $update = mysqli_query($koneksi,"UPDATE masterdata_instansirelasi set id_jenisrelasi='$id_jenisrelasi',alamat='$alamat', no_telepon='$no_telepon',no_fax='$no_fax',email='$email',website='$website' where id='$ids'");
-   
+    
     if($update){
         header('location:instansirelasi.php');
     }else{

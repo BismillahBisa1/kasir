@@ -85,8 +85,9 @@
             <a class="collapse-item" href="http://localhost/kasir/utama/admin/masterdata/jenisrelasi.php">Jenis Relasi</a>
             <a class="collapse-item" href="http://localhost/kasir/utama/admin/masterdata/kategoripemesanan.php">Kategori Pemesanan</a>
             <a class="collapse-item" href="http://localhost/kasir/utama/admin/masterdata/barang.php">Barang</a>
-            <a class="collapse-item" href="http://localhost/kasir/utama/admin/masterdata/user.php">User</a>
-        </div>
+            <a class="collapse-item" href="http://localhost/kasir/utama/admin/masterdata/pegawai.php">Pegawai</a>
+            <a class="collapse-item" href="http://localhost/kasir/utama/admin/masterdata/user.php">User</a>   
+           </div>
     </div>
 </li>
 <!-- Nav Information-->
