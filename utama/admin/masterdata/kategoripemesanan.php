@@ -84,10 +84,9 @@ readfile('../header.php');
     
  <div class="container-fluid">
                                     
-
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<div class="card-body">
+                            <div class="table table-hover">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead style="background-color:  #d3d3d3;" >
                     <tr>
                         <th>No</th>
@@ -113,7 +112,7 @@ readfile('../header.php');
                             $nomor = $halaman_awal+1;
                             while($data= mysqli_fetch_array(($ambilsemuadatakategoripemesanan))){ 
                                     $kode = $data['kode'];
-                                    $id = $data['id'];
+                                    $id = $data['id_kategoripemesanan'];
                                     $nama = $data['nama'];
                             
                             ?>
@@ -207,25 +206,7 @@ readfile('../header.php');
     </div>
 </div>
 
-<nav>
-			<ul class="pagination justify-content-center">
-				<li class="page-item">
-					<a class="page-link" <?php if($halaman > 1){ echo "href='?halaman=$previous'"; } ?>>Previous</a>
-				</li>
-                
-				<?php 
-				for($x=1;$x<=$total_halaman;$x++){
-					?> 
-					<li class="page-item">
-                        <a class="page-link active" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
-					<?php
-				}
-				?>				
-				<li class="page-item">
-					<a  class="page-link" <?php if($halaman < $total_halaman) { echo "href='?halaman=$next'"; } ?>>Next</a>
-				</li>
-			</ul>
-		</nav>
+
 
 </div>
 <!-- End of Main Content -->
@@ -283,6 +264,21 @@ readfile('../footer.php');
     </div>
   </div>
 </div>
+<!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/datatables-demo.js"></script>
 
 </html>
