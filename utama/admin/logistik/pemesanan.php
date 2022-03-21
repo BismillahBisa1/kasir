@@ -90,7 +90,7 @@ readfile('../header.php');
     <hr>
     <button class="btn btn-success add-more" type="button">
               <i class="glyphicon glyphicon-plus"></i> + Barang
-            </button>
+          </button>
             <br>
             <hr>
       <!-- membuat form  -->

@@ -90,10 +90,8 @@ readfile('../header.php');
                 <thead style="background-color:  #d3d3d3;" >
                     <tr>
                         <th>No</th>
-                        <th>Id user</th>
                         <th>Nama</th>
                         <th>Username</th>
-                        <th>Password</th>
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
@@ -122,10 +120,8 @@ readfile('../header.php');
                             ?>
                   <tr>
                                             <td><?php echo $nomor++;?></td>
-                                            <td><?php echo $ids;?></td>
                                             <td><?php echo $nama;?></td>
                                             <td><?php echo $username;?></td>
-                                            <td><?php echo $password;?></td>
                                             <td><?php echo $role;?></td>
                                             <td>
                                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$ids;?>">
@@ -160,10 +156,16 @@ readfile('../header.php');
                                                 <input type="text" name="username" value="<?=$username;?>" class="from-control" required><br>
                                                 <br>
                                                 <label>Password </label><br>
-                                                <input type="text" name="password" value="<?=$password;?>" class="from-control" required><br>
+                                                <input type="password" name="password" value="<?=$password;?>" class="from-control" required><br>
                                                 <br>
-                                                <label>Role </label><br>
-                                                <input type="text" name="role" value="<?=$role;?>" class="from-control" required><br>
+                                                 <label>Role</label><br>
+      <select  style="width:210px; height:40px;"  name="role">
+        <option value="" selected='selected'><?php echo $role;?></option>
+        <option value='admin'>Admin</option>
+        <option value='gudang'>Gudang</option>
+        <option value='keuangan'>Keuangan</option>
+      </select>
+                                                <br>
                                                 <br>
                                                 <input type="hidden" name="iduser" value="<?=$ids?>">
                                                 <button type="submit" class="btn btn-primary" name="updatedatauser">Save</button>
@@ -254,9 +256,7 @@ readfile('../footer.php');
       <!-- Modal body -->
       <form method="POST">
         <div class="modal-body">
-        <label>Id User</label><br>
-        <input type="hiden" name="iduser"  class="from-control"><br>
-        <br>
+
         <label>Nama</label><br>
         <input type="text" name="nama"  class="from-control"><br>
         <br>
@@ -264,10 +264,16 @@ readfile('../footer.php');
         <input type="text" name="username"  class="from-control"><br>
         <br>
         <label>Password</label><br>
-        <input type="text" name="password"  class="from-control"><br>
+        <input type="password" name="password"  class="from-control"><br>
         <br>
-        <label>Role</label><br>
-        <input type="text" name="role"  class="from-control"><br>
+          <label>Role</label><br>
+      <select  style="width:210px; height:40px;"  name="role">
+        <option value="" selected='selected'>Pilih Role</option>
+        <option value='admin'>Admin</option>
+        <option value='gudang'>Gudang</option>
+        <option value='keuangan'>Keuangan</option>
+      </select>
+      <br>
         <br>
         <button type="submit" class="btn btn-primary" name="addnewuser">Add</button>
         </div>
