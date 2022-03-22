@@ -54,7 +54,7 @@ if($foto != "") {
           }
 }
 
-//update info instansi
+//update  instansi
 if(isset($_POST['updatekategoripemesanan'])){
  $id   = $_POST['id_pegawai'];
 $nama   = $_POST['nama'];

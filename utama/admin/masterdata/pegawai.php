@@ -166,7 +166,7 @@ require 'functionpegawai.php';
                 <textarea name="alamat_domisili" rows="3" cols="30"  class="from-control" placeholder="<?=$alamat_domisili;?>a" required></textarea>
                 <br>  
             <label>Status Karyawan</label><br>
-            <select  style="width:210px; height:40px;"  name="role">
+            <select  style="width:210px; height:40px;"  name="status_karyawan">
                 <option value="" selected='selected'><?=$status_karyawan;?></option>
                 <option value='Tetap'>Tetap</option>
                 <option value='Kontrak'>kontrak</option>
@@ -208,7 +208,7 @@ require 'functionpegawai.php';
                                             <form method="post">
                                                 <div class="modal-body">
                                                     Apakah Anda yakin ingin menghapus <?=$id;?>
-                                                    <input type="hidden" name="id" value="<?=$id?>">
+                                                    <input type="hidden" name="id_pegawai" value="<?=$id?>">
                                                     <br>
                                                     <br>
                                                     <button type="submit" class="btn btn-primary" name="deletepegawai">Hapus</button>
