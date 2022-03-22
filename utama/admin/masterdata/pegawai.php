@@ -90,8 +90,11 @@ require 'functionpegawai.php';
                                             <thead style="background-color:  #d3d3d3;" >
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Kode</th>
                                                     <th>Nama</th>
+                                                    <th>Alamat KTP</th>
+                                                    <th>Alamat Domisili</th>
+                                                    <th>Status Karyawan</th>
+                                                    <th>Masa Kontrak</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 <tbody>
@@ -105,22 +108,29 @@ require 'functionpegawai.php';
                                                   $previous = $halaman - 1;
                                                   $next = $halaman + 1;
                                                   
-                                                  $data = mysqli_query($koneksi,"select * from masterdata_kategoripemesanan");
+                                                  $data = mysqli_query($koneksi,"select * from masterdata_pegawai");
                                                   $jumlah_data = mysqli_fetch_row($data);
                                                   $total_halaman = ceil($jumlah_data || $batas);
-                            $ambilsemuadatakategoripemesanan = mysqli_query($koneksi,"select * from masterdata_kategoripemesanan  limit $halaman_awal, $batas"); //mengambil atau mengambil semua data yang ada di stock//
+                            $ambilsemuadatapegawai = mysqli_query($koneksi,"select * from masterdata_pegawai  limit $halaman_awal, $batas"); //mengambil atau mengambil semua data yang ada di stock//
                             $nomor = $halaman_awal+1;
-                            while($data= mysqli_fetch_array(($ambilsemuadatakategoripemesanan))){ 
-                                $kode = $data['kode'];
-                                $id = $data['id'];
+                            while($data= mysqli_fetch_array(($ambilsemuadatapegawai))){ 
+                                $id = $data['id_pegawai'];
                                 $nama = $data['nama'];
+                                $alamat_ktp = $data['alamat_ktp'];
+                                $alamat_domisili = $data['alamat_domisili'];
+                                $status_karyawan = $data['status_karyawan'];
+                                $masa_kontrak = $data['masa_kontrak'];
+                                $foto = $data['foto'];
                                 
                                 ?>
                                 
                                 <tr>
                                     <td><?php echo $nomor++;?></td>
-                                    <td><?php echo $kode;?></td>
                                     <td><?php echo $nama;?></td>
+                                    <td><?php echo $alamat_ktp;?></td>
+                                    <td><?php echo $alamat_domisili;?></td>
+                                    <td><?php echo $status_karyawan;?></td>
+                                    <td><?php echo $masa_kontrak;?></td>
                                     <td>
                                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$id;?>">
                                             Edit
@@ -140,21 +150,40 @@ require 'functionpegawai.php';
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title"> Edit Kategori Pemesanan</h4>
+                                                <h4 class="modal-title"> Edit Master Data Pegawai</h4>
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             
                                             <!-- Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    <label>Kode Kategori Pemesanan </label><br>
-                                                    <input type="text" name="kode" value="<?=$kode;?>" class="from-control" required><br>
+                                                    <label>Nama</label><br>
+            <input type="text" name="nama" value="<?=$nama;?>"  class="from-control"><br>
+                <label>Alamat KTP</label><br>
+                <textarea name="alamat_ktp" rows="3" cols="30"  class="from-control" placeholder="<?=$alamat_ktp;?>" required></textarea>
+            <br>
+                <label>Alamat Domisili</label><br>
+                <textarea name="alamat_domisili" rows="3" cols="30"  class="from-control" placeholder="<?=$alamat_domisili;?>a" required></textarea>
+                <br>  
+            <label>Status Karyawan</label><br>
+            <select  style="width:210px; height:40px;"  name="role">
+                <option value="" selected='selected'><?=$status_karyawan;?></option>
+                <option value='Tetap'>Tetap</option>
+                <option value='Kontrak'>kontrak</option>
+                <option value='Magang'>magang</option>
+            </select>
+            <br>
+            <br>
+             <label>Masa Kontrak</label><br>
+            <input type="number" name="masa_kontrak" value="<?=$masa_kontrak;?>" class="from-control"> Bulan<br>
+            <br>
+                <label for="name">Foto Karyawan</label>
+              <input type="file" name="foto" class="form-control" id="foto" />
+              <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah foto karyawan</i>
+              <br>
                                                     <br>
-                                                    <label>Nama Kategori Pemesanan </label><br>
-                                                    <input type="text" name="nama" value="<?=$nama;?>" class="from-control" required><br>
-                                                    <br>
-                                                    <input type="hidden" name="id" value="<?=$id?>">
-                                                    <button type="submit" class="btn btn-primary" name="updatekategoripemesanan">Save</button>
+                                                    <input type="hidden" name="id_pegawai" value="<?=$id?>">
+                                                    <button type="submit" class="btn btn-primary" name="updatepegawai">Save</button>
                                                 </div>
                                             </form>
                                             
@@ -182,7 +211,7 @@ require 'functionpegawai.php';
                                                     <input type="hidden" name="id" value="<?=$id?>">
                                                     <br>
                                                     <br>
-                                                    <button type="submit" class="btn btn-primary" name="deletekategoripemesanan">Hapus</button>
+                                                    <button type="submit" class="btn btn-primary" name="deletepegawai">Hapus</button>
                                                 </div>
                                             </form>
                                             
@@ -236,22 +265,38 @@ readfile('../footer.php');
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Tambah Kategori Pemesanan</h4>
+        <h4 class="modal-title">Tambah Master Data Pegawai</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
     </div>
 
     <!-- Modal body -->
     <form method="POST">
         <div class="modal-body">
-            <label>Kode Kategori Pemesanan</label><br>
-            <input type="text" name="kode"  class="from-control"><br>
-            
-            <br>
             <label>Nama</label><br>
             <input type="text" name="nama"  class="from-control"><br>
-            
+                <label>Alamat KTP</label><br>
+                <textarea name="alamat_ktp" rows="3" cols="30"  class="from-control" placeholder="Masukan Alamat KTP anda" required></textarea>
             <br>
-            <button type="submit" class="btn btn-primary" name="addnewkategoripemesanan">Save</button>
+                <label>Alamat Domisili</label><br>
+                <textarea name="alamat_domisili" rows="3" cols="30"  class="from-control" placeholder="Masukan Alamat Domisili Anda" required></textarea>
+                <br>  
+            <label>Status Karyawan</label><br>
+            <select  style="width:210px; height:40px;"  name="status_karyawan">
+                <option value="" selected='selected'>Pilih Status Karyawan</option>
+                <option value='Tetap'>Tetap</option>
+                <option value='Kontrak'>kontrak</option>
+                <option value='Magang'>magang</option>
+            </select>
+            <br>
+            <br>
+             <label>Masa Kontrak</label><br>
+            <input type="number" name="masa_kontrak"  class="from-control"> Bulan<br>
+            <br>
+                <label >Foto Karyawan</label>
+              <input type="file" name="foto" class="form-control"  />
+              <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak memasukan foto karyawan</i>
+              <br>
+            <button type="submit" class="btn btn-primary" name="addnewmasterdatapegawai">Save</button>
         </div>
         
     </form>

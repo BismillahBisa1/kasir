@@ -190,11 +190,16 @@ require 'functioninstansirelasi.php';
                                                                                     <?php 
                                                                                 }
                                                                                 ?>
-                                                                            </select><br><br>
+                                                                            </select>
+
+
+
+
+                                                                            <br><br>
                                                                             
                                                                            
                                                                             <label >Alamat Instansi </label><br>
-                                                                            <input style="width:350px; height:40px;"  type="text"  name="alamat" value="<?=$alamat;?>" class="from-control" required><br>
+                                                                            <input style="width:350px; height:90px;"  type="text"  name="alamat" value="<?=$alamat;?>" class="from-control" required><br>
                                                                             <br>
                                                                             <label>No Telepon </label><br>
                                                                             <input style="width:350px; height:40px;"  type="number" name="no_telepon" value="<?=$no_telepon;?>" class="from-control" required><br>
