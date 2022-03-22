@@ -98,7 +98,7 @@ require 'functionjenisrelasi.php';
                                               <?php
                                               $batas = 10;
                                               $halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
-                                              $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
+                                              $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;  
                                               
                                               $previous = $halaman - 1;
                                               $next = $halaman + 1;
@@ -147,7 +147,7 @@ require 'functionjenisrelasi.php';
                                                     <input type="text" name="nama" value="<?=$nama;?>" class="from-control" required><br>
                                                     <br>
                                                     <input type="hidden" name="id_jenisrelasi" value="<?=$ids?>">
-                                                    <button type="submit" class="btn btn-primary" name="updateinstansi">Save</button>
+                                                    <button type="submit" class="btn btn-primary" name="updatejenisrelasi">Save</button>
                                                 </div>
                                             </form>
                                             
@@ -175,7 +175,7 @@ require 'functionjenisrelasi.php';
                                                     <input type="hidden" name="id" value="<?=$ids?>">
                                                     <br>
                                                     <br>
-                                                    <button type="submit" class="btn btn-primary" name="deleteinstansi">Hapus</button>
+                                                    <button type="submit" class="btn btn-primary" name="deletejenisrelasi">Hapus</button>
                                                 </div>
                                             </form>
                                             
@@ -234,15 +234,15 @@ readfile('../footer.php');
 
     <!-- Modal body -->
     <form method="POST">
-        <div class="modal-body">
-            <label>Nama</label><br>
-            <input type="text" name="nama"  class="from-control"><br>
+                <div class="modal-body">
+                 <label>Nama Perusahaan</label><br>
+                <input type="Text" name="nama" class="from-control" ><br>
+                
+                <br>
+                <button type="submit" class="btn btn-primary" name="addjenisrelasi">Save</button>
+            </div>
             
-            <br>
-            <button type="submit" class="btn btn-primary" name="addnewinstansi">Save</button>
-        </div>
-        
-    </form>
+        </form>
 
     <!-- Modal footer -->
     <div class="modal-footer">

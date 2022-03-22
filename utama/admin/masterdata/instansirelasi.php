@@ -299,7 +299,7 @@ require 'functioninstansirelasi.php';
                  <label>Nama Perusahaan</label><br>
                  <select style="width:350px; height:40px;"  name="instansinya" class="from-control" required> 
                     <?php 
-                    $ambilsemuadatanya = mysqli_query($koneksi,"select *from masterdata_jenisrelasi");
+                    $ambilsemuadatanya = mysqli_query($koneksi,"select * from masterdata_jenisrelasi");
                     while ($fetcharray = mysqli_fetch_array($ambilsemuadatanya)){
                         $namainstansinya = $fetcharray['nama'];
                         $idinstansinya = $fetcharray['id_jenisrelasi'];

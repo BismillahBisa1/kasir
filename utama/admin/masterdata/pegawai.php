@@ -112,7 +112,7 @@ require 'functionpegawai.php';
                             $nomor = $halaman_awal+1;
                             while($data= mysqli_fetch_array(($ambilsemuadatakategoripemesanan))){ 
                                 $kode = $data['kode'];
-                                $id = $data['id_kategoripemesanan'];
+                                $id = $data['id'];
                                 $nama = $data['nama'];
                                 
                                 ?>
