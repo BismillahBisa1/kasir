@@ -40,7 +40,7 @@ if($foto != "") {
                 echo "<script>alert('Ekstensi gambar yang boleh hanya jpg atau png.');window.location='pegawai.php';</script>";
               }
             } else {
-             $query = "INSERT INTO masterdata_pegawai (nama, alamat_ktp,alamat_domisili, status_karyawan,masa_kontrak, foto) VALUES ('$nama', '$alamat_ktp','$alamat_domisili', '$status_karyawan','$masa_kontrak', '$foto')";
+             $query = "INSERT INTO masterdata_pegawai (nama, alamat_ktp,alamat_domisili, status_karyawan,masa_kontrak, foto) VALUES ('$nama', '$alamat_ktp','$alamat_domisili', '$status_karyawan','$masa_kontrak', null)";
              $result = mysqli_query($koneksi, $query);
                   // periska query apakah ada error
              if(!$result){

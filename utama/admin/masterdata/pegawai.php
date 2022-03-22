@@ -178,7 +178,7 @@ require 'functionpegawai.php';
             <input type="number" name="masa_kontrak" value="<?=$masa_kontrak;?>" class="from-control"> Bulan<br>
             <br>
                 <label for="name">Foto Karyawan</label>
-              <input type="file" name="foto" class="form-control" id="foto" />
+              <input type="file" name="foto" class="form-control" />
               <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah foto karyawan</i>
               <br>
                                                     <br>
@@ -200,14 +200,14 @@ require 'functionpegawai.php';
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Hapus Kategori Pemesanan?</h4>
+                                                <h4 class="modal-title">Hapus Master Data Pegawai?</h4>
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             
                                             <!-- Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    Apakah Anda yakin ingin menghapus <?=$id;?>
+                                                    Apakah Anda yakin ingin menghapus <?=$nama;?>
                                                     <input type="hidden" name="id_pegawai" value="<?=$id?>">
                                                     <br>
                                                     <br>
