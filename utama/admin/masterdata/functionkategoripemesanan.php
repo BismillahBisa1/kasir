@@ -19,11 +19,11 @@ if(isset($_POST['addnewkategoripemesanan'])){
 
 //update info instansi
 if(isset($_POST['updatekategoripemesanan'])){
-    $id = $_POST['id'];
+    $id = $_POST['id_kategoripemesanan'];
     $kode = $_POST['kode'];
     $nama = $_POST['nama'];
 
-    $update = mysqli_query($koneksi,"UPDATE masterdata_kategoripemesanan set nama='$nama' , kode='$kode' where id='$id'");
+    $update = mysqli_query($koneksi,"UPDATE masterdata_kategoripemesanan set nama='$nama' , kode='$kode' where id_kategoripemesanan='$id'");
     if($update){
         header('location:kategoripemesanan.php');
     }else{
@@ -33,9 +33,9 @@ if(isset($_POST['updatekategoripemesanan'])){
 
 //menghapus Instansi
 if(isset($_POST['deletekategoripemesanan'])){
-    $id = $_POST['id'];
+    $id = $_POST['id_kategoripemesanan'];
 
-    $hapus = mysqli_query($koneksi, " delete from masterdata_kategoripemesanan where id = '$id'");
+    $hapus = mysqli_query($koneksi, " delete from masterdata_kategoripemesanan where id_kategoripemesanan = '$id'");
     if($hapus){
         header('location:kategoripemesanan.php');
     }else{

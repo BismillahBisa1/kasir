@@ -172,7 +172,7 @@ require 'functionjenisrelasi.php';
                                             <form method="post">
                                                 <div class="modal-body">
                                                     Apakah Anda yakin ingin menghapus <?=$nama;?>
-                                                    <input type="hidden" name="id" value="<?=$ids?>">
+                                                    <input type="hidden" name="id_jenisrelasi" value="<?=$ids?>">
                                                     <br>
                                                     <br>
                                                     <button type="submit" class="btn btn-primary" name="deletejenisrelasi">Hapus</button>

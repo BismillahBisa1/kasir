@@ -110,7 +110,7 @@ require 'functionbarang.php';
                             $ambilsemuadatarelasi = mysqli_query($koneksi,"select * from masterdata_barang  limit $halaman_awal, $batas"); //mengambil atau mengambil semua data yang ada di stock//
                             $nomor = $halaman_awal+1;
                             while($data= mysqli_fetch_array(($ambilsemuadatarelasi))){ 
-                                $ids = $data['id'];
+                                $ids = $data['id_barang'];
                                 $nama = $data['nama'];
                                 
                                 ?>

@@ -192,8 +192,7 @@ require 'functioninstansirelasi.php';
                                                                                 ?>
                                                                             </select><br><br>
                                                                             
-                                                                            <label>Alamat Instansi </label><br>
-                                                                            <input style="width:350px; height:40px;" type="text"  name="alamat" value="<?=$alamat;?>" class="from-control" required><br><br>
+                                                                           
                                                                             <label >Alamat Instansi </label><br>
                                                                             <input style="width:350px; height:40px;"  type="text"  name="alamat" value="<?=$alamat;?>" class="from-control" required><br>
                                                                             <br>

@@ -8,7 +8,7 @@ if(isset($_POST['addjenisrelasi'])){
     $nama = $_POST['nama'];
 
 
-    $addtotable = mysqli_query($koneksi,"INSERT into masterdata_jenisrelasi(ids,nama) values('$id_jenisrelasi','$nama')");
+    $addtotable = mysqli_query($koneksi,"INSERT into masterdata_jenisrelasi(id_jenisrelasi,nama) values('$ids','$nama')");
     if($addtotable){
         header('location:jenisrelasi.php');
     }else{
