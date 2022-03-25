@@ -21,7 +21,7 @@ if($foto != "") {
   $angka_acak     = rand(1,999);
   $nama_gambar_baru = $angka_acak.'-'.$foto; //menggabungkan angka acak dengan nama file sebenarnya
   if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {     
-                move_uploaded_file($file_tmp, '../../gambar/pegawai/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
+                move_uploaded_file($file_tmp, 'gambar/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                   // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
                 $query = "INSERT INTO masterdata_pegawai (nama, alamat_ktp,alamat_domisili, status_karyawan,masa_kontrak, foto) VALUES ('$nama', '$alamat_ktp','$alamat_domisili', '$status_karyawan','$masa_kontrak','$nama_gambar_baru')";
                 $result = mysqli_query($koneksi, $query);
@@ -55,7 +55,7 @@ if($foto != "") {
 }
 
 //update  instansi
-if(isset($_POST['updatekategoripemesanan'])){
+if(isset($_POST['updatepegawai'])){
  $id   = $_POST['id_pegawai'];
 $nama   = $_POST['nama'];
 $alamat_ktp   = $_POST['alamat_ktp'];
