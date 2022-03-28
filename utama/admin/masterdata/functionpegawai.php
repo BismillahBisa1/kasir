@@ -5,25 +5,26 @@ $koneksi = mysqli_connect("Localhost","root","","kasir");
 //tambah isntansi
 if(isset($_POST['addnewmasterdatapegawai'])){
   // membuat variabel untuk menampung data dari form
+
 $nama   = $_POST['nama'];
 $alamat_ktp   = $_POST['alamat_ktp'];
 $alamat_domisili   = $_POST['alamat_domisili'];
 $status_karyawan   = $_POST['status_karyawan'];
 $masa_kontrak   = $_POST['masa_kontrak'];
-$foto = $_FILES['foto']['name'];
+$foto_karyawan = $_FILES['foto_karyawan']['name'];
 
 //cek dulu jika ada gambar karyawan jalankan coding ini
-if($foto != "") {
+if($foto_karyawan != "") {
   $ekstensi_diperbolehkan = array('png','jpg'); //ekstensi file gambar yang bisa diupload 
-  $x = explode('.', $foto); //memisahkan nama file dengan ekstensi yang diupload
+  $x = explode('.', $foto_karyawan); //memisahkan nama file dengan ekstensi yang diupload
   $ekstensi = strtolower(end($x));
-  $file_tmp = $_FILES['foto']['tmp_name'];   
+  $file_tmp = $_FILES['foto_karyawan']['tmp_name'];   
   $angka_acak     = rand(1,999);
-  $nama_gambar_baru = $angka_acak.'-'.$foto; //menggabungkan angka acak dengan nama file sebenarnya
+  $nama_gambar_baru = $angka_acak.'-'.$foto_karyawan; //menggabungkan angka acak dengan nama file sebenarnya
   if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {     
                 move_uploaded_file($file_tmp, 'gambar/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                   // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
-                $query = "INSERT INTO masterdata_pegawai (nama, alamat_ktp,alamat_domisili, status_karyawan,masa_kontrak, foto) VALUES ('$nama', '$alamat_ktp','$alamat_domisili', '$status_karyawan','$masa_kontrak','$nama_gambar_baru')";
+                $query = "INSERT INTO masterdata_pegawai (nama, alamat_ktp,alamat_domisili, status_karyawan,masa_kontrak, foto_karyawan) VALUES ('$nama', '$alamat_ktp','$alamat_domisili', '$status_karyawan','$masa_kontrak','$nama_gambar_baru')";
                 $result = mysqli_query($koneksi, $query);
                   // periska query apakah ada error
                 if(!$result){
@@ -40,7 +41,7 @@ if($foto != "") {
                 echo "<script>alert('Ekstensi gambar yang boleh hanya jpg atau png.');window.location='pegawai.php';</script>";
               }
             } else {
-             $query = "INSERT INTO masterdata_pegawai (nama, alamat_ktp,alamat_domisili, status_karyawan,masa_kontrak, foto) VALUES ('$nama', '$alamat_ktp','$alamat_domisili', '$status_karyawan','$masa_kontrak', null)";
+             $query = "INSERT INTO masterdata_pegawai (nama, alamat_ktp,alamat_domisili, status_karyawan,masa_kontrak, foto_karyawan) VALUES ('$nama', '$alamat_ktp','$alamat_domisili', '$status_karyawan','$masa_kontrak', null)";
              $result = mysqli_query($koneksi, $query);
                   // periska query apakah ada error
              if(!$result){
@@ -62,20 +63,20 @@ $alamat_ktp   = $_POST['alamat_ktp'];
 $alamat_domisili   = $_POST['alamat_domisili'];
 $status_karyawan   = $_POST['status_karyawan'];
 $masa_kontrak   = $_POST['masa_kontrak'];
-$foto = $_FILES['foto']['name'];
+$foto_karyawan = $_FILES['foto_karyawan']['name'];
   //cek dulu jika merubah gambar pegawai jalankan coding ini
-if($foto != "") {
-    $ekstensi_diperbolehkan = array('png','jpg'); //ekstensi file gambar yang bisa diupload 
-    $x = explode('.', $foto); //memisahkan nama file dengan ekstensi yang diupload
-    $ekstensi = strtolower(end($x));
-    $file_tmp = $_FILES['foto']['tmp_name'];   
-    $angka_acak     = rand(1,999);
-    $nama_gambar_baru = $angka_acak.'-'.$foto; //menggabungkan angka acak dengan nama file sebenarnya
-    if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {
-                  move_uploaded_file($file_tmp, '../../gambar/pegawai/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
-
+//cek dulu jika ada gambar karyawan jalankan coding ini
+if($foto_karyawan != "") {
+  $ekstensi_diperbolehkan = array('png','jpg'); //ekstensi file gambar yang bisa diupload 
+  $x = explode('.', $foto_karyawan); //memisahkan nama file dengan ekstensi yang diupload
+  $ekstensi = strtolower(end($x));
+  $file_tmp = $_FILES['foto_karyawan']['tmp_name'];   
+  $angka_acak     = rand(1,999);
+  $nama_gambar_baru = $angka_acak.'-'.$foto_karyawan; //menggabungkan angka acak dengan nama file sebenarnya
+  if(in_array($ekstensi, $ekstensi_diperbolehkan) === true)  {     
+                move_uploaded_file($file_tmp, 'gambar/'.$nama_gambar_baru); //memindah file gambar ke folder gambar
                     // jalankan query UPDATE berdasarkan ID yang produknya kita edit
-                  $query  = "UPDATE masterdata_pegawai SET nama = '$nama', alamat_ktp = '$alamat_ktp',alamat_domisili = '$alamat_domisili', status_karyawan = '$status_karyawan',masa_kontrak = '$masa_kontrak',  foto = '$nama_gambar_baru'";
+                  $query  = "UPDATE masterdata_pegawai SET nama = '$nama', alamat_ktp = '$alamat_ktp',alamat_domisili = '$alamat_domisili', status_karyawan = '$status_karyawan',masa_kontrak = '$masa_kontrak',  foto_karyawan = '$nama_gambar_baru'";
                   $query .= "WHERE id_pegawai = '$id'";
                   $result = mysqli_query($koneksi, $query);
                     // periska query apakah ada error

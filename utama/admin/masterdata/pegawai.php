@@ -120,7 +120,7 @@ require 'functionpegawai.php';
                                 $alamat_domisili = $data['alamat_domisili'];
                                 $status_karyawan = $data['status_karyawan'];
                                 $masa_kontrak = $data['masa_kontrak'];
-                                $foto = $data['foto'];
+                                $foto = $data['foto_karyawan'];
                                 
                                 ?>
                                 
@@ -177,8 +177,8 @@ require 'functionpegawai.php';
              <label>Masa Kontrak</label><br>
             <input type="number" name="masa_kontrak" value="<?=$masa_kontrak;?>" class="from-control"> Bulan<br>
             <br>
-                <label for="name">Foto Karyawan</label>
-              <input type="file" name="foto" class="form-control" />
+                <label >Foto Karyawan</label>
+              <input type="file" name="foto_karyawan" class="form-control" value="<?=$masa_kontrak;?> />
               <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah foto karyawan</i>
               <br>
                                                     <br>
@@ -293,7 +293,7 @@ readfile('../footer.php');
             <input type="number" name="masa_kontrak"  class="from-control"> Bulan<br>
             <br>
                 <label >Foto Karyawan</label>
-              <input type="file" name="foto" class="form-control"  />
+              <input type="file" name="foto_karyawan" class="form-control"  />
               <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak memasukan foto karyawan</i>
               <br>
             <button type="submit" class="btn btn-primary" name="addnewmasterdatapegawai">Save</button>

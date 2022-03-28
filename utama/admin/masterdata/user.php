@@ -150,6 +150,27 @@ require 'functionuser.php';
                                             <form method="post">
                                                 <div class="modal-body">
                                                     <label>Nama </label><br>
+                                                                            <select style="width:350px; height:40px;"  name="instansinya" class="from-control" required> 
+                                                                                <?php 
+                                                                                $ambilsemuadatanya = mysqli_query($koneksi,"select *from masterdata_pegawai");
+                                                                                while ($fetcharray = mysqli_fetch_array($ambilsemuadatanya)){
+                                                                                    $namapegawai = $fetcharray['nama'];
+                                                                                    $idpegawai = $fetcharray['id_pegawai'];
+                                                                                    
+                                                                                    ?>
+                                                                                    <option value="<?=$idpegawai;?>"><?= $namapegawai;?></option>;
+
+                                                                                    <?php 
+                                                                                }
+                                                                                ?>
+                                                                            </select>
+
+
+
+
+                                                                            <br>
+
+                                                    <label>Nama </label><br>
                                                     <input type="text" name="nama" value="<?=$nama;?>" class="from-control" required><br>
                                                     <br>
                                                     <label>Username </label><br>
@@ -256,10 +277,23 @@ readfile('../footer.php');
     <!-- Modal body -->
     <form method="POST">
         <div class="modal-body">
+ <label>Nama </label><br>
+                 <select style="width:300px; height:40px;"  name="instansinya" class="from-control" required> 
+                    <?php 
+                    $ambilsemuadatanya = mysqli_query($koneksi,"select * from masterdata_pegawai");
+                    while ($fetcharray = mysqli_fetch_array($ambilsemuadatanya)){
+                        $namapegawai = $fetcharray['nama'];
+                        $idpegawai = $fetcharray['id_pegawai'];
+                        
+                        ?>
+                        
+                        <option value="<?=$idpegawai;?>"><?= $namapegawai;?></option>;
 
-            <label>Nama</label><br>
-            <input type="text" name="nama"  class="from-control"><br>
-            <br>
+                        <?php 
+                    }
+                    ?>
+                </select><br><br>
+           
             <label>Username</label><br>
             <input type="text" name="username"  class="from-control"><br>
             <br>
